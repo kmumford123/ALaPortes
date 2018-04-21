@@ -10,7 +10,7 @@
         "build": "cd client && npm run build",
         "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+        "production": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
     },
     "repository": {
         "type": "git",
