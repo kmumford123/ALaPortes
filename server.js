@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes")
 const Router = express.Router()
@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./at-the-gate/build/index.html"));
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "at-the-gate/build", "index.html"));
 });
 
 // // Our scraping tools

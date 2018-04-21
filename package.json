@@ -4,9 +4,12 @@
     "description": "Feeding You before your flight",
     "main": "server.js",
     "scripts": {
-        "client": "cd at-the-gate && yarn start",
+        "server": "node server.js",
+        "client": "cd at-the-gate && npm run start",
+        "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+        "build": "cd at-the-gate && npm run build",
+        "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
     },
     "repository": {
@@ -21,11 +24,11 @@
     },
     "homepage": "https://github.com/kmumford123/ALaPortes#readme",
     "dependencies": {
+        "express": "^4.16.3",
         "axios": "^0.18.0",
         "body-parser": "^1.18.2",
         "cheerio": "^1.0.0-rc.2",
         "dateformat": "^3.0.3",
-        "express": "^4.16.3",
         "mongoose": "^5.0.15",
         "mongoose-unique-validator": "^2.0.0",
         "morgan": "^1.9.0",
